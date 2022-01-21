@@ -1,0 +1,30 @@
+[package]
+name = "services"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+axum = "0.4.4"
+rocksdb = "0.17.0"
+tokio = { version = "1.0", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = { version="0.3", features = ["env-filter"] }
+tower = { version = "0.4", features = ["util", "timeout", "load-shed", "limit"] }
+tower-http = { version = "0.2.0", features = ["add-extension", "auth", "compression-full", "trace"] }
+lazy_static = "1.4.0"
+jemallocator = "0.3.2"
+prost = "0.9"
+prost-types = "0.9"
+hyper = "0.14"
+
+uuid = { version = "0.8", features = ["serde", "v4"] }
+
+[build-dependencies]
+prost-build = "0.9"
+glob = "0.3.0"
+
+[profile.release]
+debug = 1
+incremental = true
